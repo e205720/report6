@@ -1,41 +1,89 @@
 package jp.ac.uryukyu.ie.e205720;
+
 import java.util.Arrays;
 
 public class Board {
 
-    String BLACK = "⚫️";
-    String WHITE = "⚪️";
-    String EMPTY = "　";
+    static final String BLACK = "⚫️";
+    static final String WHITE = "⚪️";
+    static final String EMPTY = "　";
 
-    String[][] board = new String[8][8];
+    
 
-    public void FarstBoard() {      //初期設定
+    public static String[][] board = new String[8][8];
+
+    public void FarstBoard() { // 初期設定
         for (int i = 0; i < 8; i++) {
             for (int x = 0; x < 8; x++) {
                 board[i][x] = EMPTY;
             }
-            board[3][4] = WHITE;
-            board[4][3] = WHITE;
-            board[4][4] = BLACK;
-            board[3][3] = BLACK;
         }
+        board[3][4] = WHITE;
+        board[4][3] = WHITE;
+        board[4][4] = BLACK;
+        board[3][3] = BLACK;
+
+        
+
     }
 
-    public void set() {     //盤面を表示
-        System.out.println("[ 1][ 2][ 3][ 4][ 5][ 6][ 7][ 8]");
+    public String[][] getStrings() {
+        return board;
+    }
+
+    public void set() { // 盤面を表示
+        System.out.println(" [ 0][ 1][ 2][ 3][ 4][ 5][ 6][ 7]");
+        int num = 0;
         for (String[] setboard : board) {
+            System.out.print(num);
             System.out.println(Arrays.toString(setboard));
+            num++;
         }
-
-
-        /*
-         * if (i == 4) { System.out.printf("[ %d][%s][%s][%s][%s][%s][%s][%s][%s]%n", i,
-         * EMPTY, EMPTY, EMPTY, BLACK, WHITE, EMPTY, EMPTY, EMPTY); } else if (i == 5) {
-         * System.out.printf("[ %d][%s][%s][%s][%s][%s][%s][%s][%s]%n", i, EMPTY, EMPTY,
-         * EMPTY, WHITE, BLACK, EMPTY, EMPTY, EMPTY); } else { {
-         * System.out.printf("[ %d][%s][%s][%s][%s][%s][%s][%s][%s]%n", i, EMPTY, EMPTY,
-         * EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY); } }
-         */
     }
 
+    public void WhiteChenge(int x, int y) {
+        WhiteGame game = new WhiteGame();
+        board[y][x] = WHITE;
+
+        WhiteGame.turnLeftUp(x, y);
+        WhiteGame.turnUp(x, y);
+        WhiteGame.turnRightUp(x, y);
+        WhiteGame.turnLeft(x, y);
+        WhiteGame.turnRight(x, y);
+        WhiteGame.turnLeftDown(x, y);
+        WhiteGame.turnDown(x, y);
+        WhiteGame.turnRightDown(x, y);
+    }
+
+    public void BlackChenge(int x, int y) {
+        BlackGame game = new BlackGame();
+        board[y][x] = BLACK;
+
+        BlackGame.turnLeftUp(x, y);
+        BlackGame.turnUp(x, y);
+        BlackGame.turnRightUp(x, y);
+        BlackGame.turnLeft(x, y);
+        BlackGame.turnRight(x, y);
+        BlackGame.turnLeftDown(x, y);
+        BlackGame.turnDown(x, y);
+        BlackGame.turnRightDown(x, y);
+
+
+    }
+
+    public boolean judge() {
+        int count = 0;
+        for (String[] setboard : board) {
+            for (String list : setboard) {
+                if ("　".equals(list)) {
+                    count++;
+                }
+            }
+        }
+        if (count >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
