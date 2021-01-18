@@ -1,8 +1,12 @@
 package jp.ac.uryukyu.ie.e205720;
 
+/**他のクラスやメソッドを動かし実行させるだけのクラス */
 public class Main {
     static int count = 0;
 
+    /**初期設定した後にwhile文でループさせて中のif文のjudge()がfalseになるとループを
+     * 抜けるメソッド
+     */
     public static void main(String[] args) {
         GameMaster gameMaster = new GameMaster();
         Board board = new Board();
@@ -20,6 +24,7 @@ public class Main {
             }
             if (board.judge()) {
             } else {
+                gameMaster.winner(board.WhiteCount(), board.BlackCount());
                 System.out.println("ゲーム終了");
                 break;
             }

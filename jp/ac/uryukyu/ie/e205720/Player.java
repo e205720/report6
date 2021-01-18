@@ -2,11 +2,13 @@ package jp.ac.uryukyu.ie.e205720;
 
 import java.util.Scanner;
 
+/**プレイヤーの入力をさせて読み取るクラス */
 public class Player {
     Board board = new Board();
     GameMaster gameMaster = new GameMaster();
 
-    public void input() { // 入力を受け取る
+    /**プレイヤーからの入力を受け取り、他のメソッドに入力値を知らせるメソッド */
+    public void input() { 
         Scanner scanner = new Scanner(System.in);
         System.out.print("何列？");
         int x = scanner.nextInt();
@@ -21,7 +23,7 @@ public class Player {
             }
         }else{
             System.out.println("そのマスは埋まっています");
-            
+
         }
     }
 

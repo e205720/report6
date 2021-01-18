@@ -1,8 +1,12 @@
 package jp.ac.uryukyu.ie.e205720;
-
+/**このクラスは置かれた黒駒の周りに白駒がないか調べ、裏返せるなら裏返すクラス 
+ * 
+ * このクラスはネットに上がっているものを自分のコードに合うように少し変えた引用コードである為、
+ * レポートにその説明と引用先を記す
+*/
 public class BlackGame {
     Board board = new Board();
-
+    /**左上に置かれている駒を確認して白駒が裏返せるなら裏返すメソッド */
     static public void turnLeftUp(int x, int y) {
         if (y > 1 && x > 1) {
 
@@ -34,6 +38,7 @@ public class BlackGame {
         }
     }
 
+    /**上に置かれている駒を確認して白駒が裏返せるなら裏返すメソッド */
     static public void turnUp(int x, int y) {
         if (y > 1) {
 
@@ -65,6 +70,7 @@ public class BlackGame {
         }
     }
 
+    /**右上に置かれている駒を確認して白駒が裏返せるなら裏返すメソッド */
     static public void turnRightUp(int x, int y) {
         if (y > 1 && x < 6) {
 
@@ -96,6 +102,7 @@ public class BlackGame {
         }
     }
 
+    /**下に置かれている駒を確認して白駒が裏返せるなら裏返すメソッド */
     static public void turnDown(int x, int y) {
         if (y < 6) {
 
@@ -127,6 +134,7 @@ public class BlackGame {
         }
     }
 
+    /**右に置かれている駒を確認して白駒が裏返せるなら裏返すメソッド */
     static public void turnRight(int x, int y) {
         if (x < 6) {
 
@@ -158,6 +166,7 @@ public class BlackGame {
         }
     }
 
+    /**左下に置かれている駒を確認して白駒が裏返せるなら裏返すメソッド */
     static public void turnLeftDown(int x, int y) {
         if (y < 6 && x > 1) {
 
@@ -189,6 +198,7 @@ public class BlackGame {
         }
     }
 
+    /**左に置かれている駒を確認して白駒が裏返せるなら裏返すメソッド */
     static public void turnLeft(int x, int y) {
         if (x > 1) {
 
@@ -220,6 +230,7 @@ public class BlackGame {
         }
     }
 
+    /**右下に置かれている駒を確認して白駒が裏返せるなら裏返すメソッド */
     static public void turnRightDown(int x, int y) {
         if (y < 6 && x < 6) {
 
